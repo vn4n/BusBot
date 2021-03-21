@@ -1,7 +1,6 @@
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -9,12 +8,14 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
-@AllArgsConstructor
-@NoArgsConstructor
+
+@Component
 public class MyBusBot extends TelegramLongPollingBot {
-    @Setter
+    @Autowired
+    private TrafficParser trafficParser;
+    @Value("${myBusBot.name}")
     private String botName;
-    @Setter
+    @Value("${myBusBot.token}")
     private String botToken;
 
     @Override
@@ -24,7 +25,7 @@ public class MyBusBot extends TelegramLongPollingBot {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(chatId.toString());
         //PARSING
-        TrafficParser trafficParser = new TrafficParser();
+        //TrafficParser trafficParser = new TrafficParser();
         String result = trafficParser.getTraffic("https://yandex.ru/maps/213/moscow/stops/stop__9641611");
         //END OF PARSING
         sendMessage.setText(result);

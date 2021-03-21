@@ -1,13 +1,12 @@
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
 import org.jsoup.select.Evaluator;
-
-import javax.print.Doc;
+import org.springframework.stereotype.Component;
 import java.io.IOException;
 
+@Component
 public class TrafficParser {
 
     public String getTraffic(String url){
