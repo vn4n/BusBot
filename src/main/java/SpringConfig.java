@@ -3,7 +3,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 @Configuration
-@PropertySource("classpath:myBusBot.properties")
+@PropertySource(value = "classpath:myBusBot.properties", encoding = "UTF-8")
 public class SpringConfig {
     @Bean
     public TrafficParser trafficParser(){

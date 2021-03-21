@@ -7,8 +7,8 @@ public class BusBot {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
 
         MyBusBot myBusBot = context.getBean("myBusBot",MyBusBot.class);
-
         myBusBot.botConnect();
+
 
         context.close();
 
