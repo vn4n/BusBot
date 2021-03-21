@@ -30,7 +30,6 @@ public class MyBusBot extends TelegramLongPollingBot {
         sendMessage.setChatId(chatId.toString());
         String stopName = update.getMessage().getText();
         String urlForStop = this.getStopsMap().get(stopName);
-        //String result = trafficParser.getTraffic("https://yandex.ru/maps/213/moscow/stops/stop__9641611");
         if (urlForStop != null) {
             result = trafficParser.getTraffic(urlForStop);
         }

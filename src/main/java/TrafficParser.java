@@ -28,11 +28,9 @@ public class TrafficParser {
                     String time = childNodes.select("div.masstransit-prognoses-view__title._live > span.masstransit-prognoses-view__title-text").text();
                     if (time.equals("")) continue;
                     String busInfo = childNodes.select("div.masstransit-vehicle-snippet-view__info > a.masstransit-vehicle-snippet-view__name").text();
-                    //System.out.println(busInfo + ": " + time);
                     resultTraffic += busInfo + ": " + time + "\n";
                 }
-                //String str = childNodes.text();
-                //System.out.printf(str);
+
             }
 
 
